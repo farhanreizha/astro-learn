@@ -1,0 +1,43 @@
+---
+import AppSidebar from "@/components/shared/app-sidebar";
+import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
+
+const pathname = Astro.url.pathname;
+
+const items = [
+  {
+    title: "Dashboard",
+    url: "/dashboard",
+    icon: Home,
+  },
+  {
+    title: "Inbox",
+    url: "/chat",
+    icon: Inbox,
+  },
+  {
+    title: "Calendar",
+    url: "/calendar",
+    icon: Calendar,
+  },
+  {
+    title: "Search",
+    url: "/search",
+    icon: Search,
+  },
+  {
+    title: "Settings",
+    url: "/settings",
+    icon: Settings,
+  },
+];
+
+const title = items.find((item) => item.url === pathname)?.title;
+---
+
+<AppSidebar items={items} pathname={pathname}>
+  <main class="grid place-items-center h-screen content-center">
+    <h1 class="text-3xl font-bold">Welcome to the {title}</h1>
+    <slot />
+  </main>
+</AppSidebar>

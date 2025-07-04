@@ -2,11 +2,14 @@
 import { Button } from "@/components/ui/button";
 import Layout from "@/layouts/main.astro";
 import Link from "@/components/shared/link";
+
+const pathname = Astro.url.pathname
 ---
 
 <Layout title="Astro Here">
-	<div class="grid place-items-center h-screen content-center">
+	<div class="grid place-items-center h-screen content-center gap-4">
 		<Button>Tailwind Button in Astro!</Button>
+		<Link set:text="Home" href="/" pathname={pathname} />
 		<Link set:text="Go to dashboard" href="/dashboard" />
 	</div>
 </Layout>
